@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         marginVertical: 15,
         paddingHorizontal: 10,
     },
+    
     quantityContainer: {
         backgroundColor: 'lightgray',
         paddingHorizontal: 5,
