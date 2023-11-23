@@ -8,7 +8,7 @@ import Swiper from 'react-native-swiper'
 
 import { Button, SocialIcon } from '@rneui/themed'
 import  Icon  from 'react-native-vector-icons/MaterialIcons'
-const SignInWelcomeScreen = () => {
+export default function SignInWelcomeScreen({navigation}){
     return ( 
         <View style={{flex:1}} >
 
@@ -20,7 +20,6 @@ const SignInWelcomeScreen = () => {
 
             <View style={{flex:4,justifyContent:'center'}} >
                 
-
                 <Swiper autoplay={true} >
                     <View style={styles.slide1} >
                         <Image 
@@ -36,6 +35,7 @@ const SignInWelcomeScreen = () => {
                         />
                     </View>
 
+
                     <View style={styles.slide3} >
                         <Image 
                             source={{uri:"https://images.foody.vn/res/g106/1052967/prof/s640x400/foody-upload-api-foody-mobile-beauty-upload-api-im-201027144648.jpeg"}}
@@ -49,8 +49,10 @@ const SignInWelcomeScreen = () => {
                             style={{height:'100%', width:'100%'}}
                         />
                     </View>
+
                 </Swiper>
             </View>
+
 
             <View style={{flex:4, justifyContent:'flex-end', marginBottom:20}} >
 
@@ -59,6 +61,11 @@ const SignInWelcomeScreen = () => {
                         title='SIGN IN'
                         buttonStyle={parameters.styledButton}
                         titleStyle={parameters.buttonTitle}
+                        onPress={() => {
+                            if (navigation) {
+                                navigation.navigate("SignInScreen")
+                            }
+                        }}
                     />
                 </View>
 
@@ -116,6 +123,3 @@ const styles = StyleSheet.create({
         marginTop: -3
     }
 })
-
-
-export default SignInWelcomeScreen;

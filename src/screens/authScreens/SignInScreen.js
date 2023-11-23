@@ -6,19 +6,19 @@ import * as Animatable from 'react-native-animatable'
 
 import { Button, SocialIcon } from '@rneui/themed'
 import  Icon  from 'react-native-vector-icons/MaterialIcons'
-
 import Header from '../../components/Header'
 
-const SignInScreen = () => {
+export default function SignInScreen({navigation}) {
     
     const [textInput2Fossued, setTextInput2Fossued] = useState(false)
 
     const textInput1 = useRef(1)
     const textInput2 = useRef(2)
 
+
     return (
         <View style={styles.container} >
-            <Header title='MY ACCOUNT' type='arrow-left' />
+            <Header title='MY ACCOUNT' type='arrow-left' navigation={navigation} />
 
             <View style={{marginLeft: 20, marginTop: 10}} >
                 <Text style={title} > Sign-In </Text>
@@ -47,6 +47,8 @@ const SignInScreen = () => {
                             iconStyle = {{color: colors.grey3}}
                             type= 'material'
                             style={{}}
+
+
                         />
                     </Animatable.View>
 
@@ -191,5 +193,3 @@ const styles = StyleSheet.create({
         marginTop: -3
     }
 })
-
-export default SignInScreen

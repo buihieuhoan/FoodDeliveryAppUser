@@ -5,17 +5,21 @@ import {colors, parameters} from '../global/styles'
 
 import  Icon  from 'react-native-vector-icons/MaterialCommunityIcons'
 
-const Header = ({title, type}) => {
+export default function Header({title, type, navigation}){
 
     return (
         <View style={styles.header}>
             <View style={{marginLeft: 20}} >
                 <Icon 
-
+                    type='material-community'
                     name={type}
-                    color={colors.headerText}
+                    color = {colors.headerText}
                     size={28}
-                    onPress={() => {}}
+                    onPress={() => {
+                        if (navigation) {
+                          navigation.goBack();
+                        }
+                    }}
                 />
                 
             </View>
@@ -41,5 +45,3 @@ const styles = StyleSheet.create({
         marginLeft: 30
     }
 })
-
-export default Header
