@@ -87,7 +87,7 @@ export default function SignInScreen({navigation}) {
                     titleStyle={parameters.buttonTitle}
                     onPress={() => {
                         if (navigation) {
-                            navigation.navigate("RootClientTabs")
+                            navigation.navigate("DrawerNavigator")
                     }}}
                 />
             </View>

@@ -4,7 +4,7 @@ import { Button, SocialIcon } from '@rneui/themed'
 import  Icon  from 'react-native-vector-icons/MaterialIcons'
 import { withBadge,  } from "@rneui/themed";
 import {colors, parameters} from '../global/styles'
-export default function HomeHeader() {
+export default function HomeHeader({navigation}) {
 
     const BadgeIcon = withBadge(0)(Icon)
 
@@ -17,6 +17,11 @@ export default function HomeHeader() {
                     name="menu"
                     color={colors.cardbackground}
                     size={32}
+                    onPress={() => {
+                        if(navigation) {
+                            navigation.toggleDrawer()
+                        }
+                    }}
 
                 />
             </View>
