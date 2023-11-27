@@ -5,6 +5,7 @@ import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
 import  Icon  from 'react-native-vector-icons/MaterialIcons'
 import { filterData } from '../global/Data';
+import { filter } from 'lodash';
 
 
 export default function SearchComponent() {
@@ -15,6 +16,24 @@ export default function SearchComponent() {
     const [modalVisible, setModalVisible] = useState(false)
     const [textInputFossued,setTextInputFossued] = useState(true)
     const textInput = useRef(0)
+
+
+    const contains = ({name}, query) => {
+        if(name.includes(query)){
+            return true
+        }
+        return false
+    }
+
+
+    const handleSearch = text =>{
+        const dataS = filter(filterData, userSearch => {
+            return contains(userSearch,text)
+        })
+
+        setData([...dataS])
+    }
+
     return (
     <View style={{alignItems:'center'}} >
         <TouchableWithoutFeedback
@@ -41,7 +60,10 @@ export default function SearchComponent() {
             <View style={styles.modal} >
                 <View style={styles.view1} >
                     <View style={styles.TextInput} >
-                        <Animatable.View>
+                        <Animatable.View
+                            animation={textInputFossued? 'fadeInRight' : 'fadeInLeft'}
+                            duration={400}
+                        >
                             <Icon name = {textInputFossued ? "arrow-back" : "search" }  
                                 onPress = {()=>{
                                     if(textInputFossued)
@@ -59,9 +81,22 @@ export default function SearchComponent() {
                             placeholder=''
                             autoFocus={false}
                             ref={textInput}
+
+                            onFocus={()=>{
+                                setTextInputFossued(true)
+                            }}
+
+                            onBlur={()=>{
+                                setTextInputFossued(false)
+                            }}
+
+                            onChangeText={handleSearch}
                         />
 
-                        <Animatable.View>
+                        <Animatable.View
+                            animation={textInputFossued? 'fadeInLeft' : ''}
+                            duration={400}
+                        >
                             <Icon 
                                 name = {textInputFossued ? "cancel" : null } 
                                 iconStyle ={{color:colors.grey3,}}

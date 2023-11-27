@@ -8,6 +8,26 @@ export const filterData = [{name:"Fast food",image: require('../assets/fastfood.
                 ];
 
 
+
+export const filterData2 = [
+    {name:"Fast food",image:'https://aeonmall-binhtan.com.vn/wp-content/uploads/2021/12/mcdonalds-hacks-menu-ft-1-blog0122-4ac9d62f6c9143be8da3d0a8553348b0.jpg' , id:"0"},
+    {name:"Burgers",image: 'https://aeonmall-binhtan.com.vn/wp-content/uploads/2021/05/feat-3.jpg',id:"1"},
+    {name:"Salads",image:"https://img.freepik.com/free-photo/salad-from-tomatoes-cucumber-red-onions-lettuce-leaves-healthy-summer-vitamin-menu-vegan-vegetable-food-vegetarian-dinner-table-top-view-flat-lay_2829-6482.jpg",id:"2"},
+    {name:"Hotdog",image: "https://hips.hearstapps.com/hmg-prod/images/big-mac-hotdog-7-1656099486.jpeg",id:"3"},
+    {name:"Chinese",image:"https://hoavanshz.com//uploads/images/blog-tieng-hoa/tu-vung/danh-sach-mon-an-trung-quoc-bang-tieng-trung.jpg",id:"4"},
+    {name:"Pizza",image:"https://hips.hearstapps.com/hmg-prod/images/classic-cheese-pizza-recipe-2-64429a0cb408b.jpg?crop=0.6666666666666667xw:1xh;center,top&resize=1200:*",id:"5"},  
+    {name:"Sea food",image:"https://statics.vinpearl.com/nha-trang-seafood-1_1696182092.jpg",id:"6"},
+    {name:"Chinese Food",image:"https://cdn-img-v2.webbnc.net/uploadv2/web/14/14961/media/2020/10/07/03/59/1602058801_mon-an-noi-tieng-trung-hoa-1.jpg",id:"7"},
+    {name:"Rice",image:"https://images.foody.vn/res/g113/1123512/prof/s280x175/foody-upload-api-foody-mobile-ti-357cb35b-230616110024.jpeg",id:"8"},  
+    {name:"Ocean dish",image:"https://images.immediate.co.uk/production/volatile/sites/2/2016/06/23897.jpg?quality=90&resize=600,400",id:"9"},
+];
+
+
+
+
+
+
+
 export const restaurantsData = [
     {restaurantName:"Mc Donalds", farAway:"21.2",
     businessAddress:"22 Bessie street, Cape Town",images:'https://aeonmall-binhtan.com.vn/wp-content/uploads/2021/12/mcdonalds-hacks-menu-ft-1-blog0122-4ac9d62f6c9143be8da3d0a8553348b0.jpg',
