@@ -3,6 +3,8 @@ import  Icon  from 'react-native-vector-icons/MaterialIcons'
 import React from 'react'
 
 import { colors } from "../global/styles";
+import ProductCard from './ProductCard';
+
 
 const SearchResultCard = ({
     OnPressRestaurantCard,
@@ -43,6 +45,7 @@ const SearchResultCard = ({
                 <View style={{paddingTop:5}} >
                     <Text style={styles.text5} > {restaurantName} </Text>
                 </View>
+
                 <View style={{flexDirection:'row'}} >
                     <View style={styles.view4} >
                         <Icon
@@ -58,8 +61,28 @@ const SearchResultCard = ({
                     <View style={{flex:9}} >
                         <Text style={styles.text6} > {businessAddress} </Text>
                     </View>
+
                 </View>
+
             </View>
+
+
+        </View>
+
+        <View style={{marginTop:5, paddingBottom:20}} >
+            <FlatList
+                style={{backgroundColor:colors.cardbackground}}
+                data={productData}
+                keyExtractor={(item,index)=>index.toString()}
+                renderItem={({item,index})=>(
+                    <ProductCard 
+                        image={item.image}
+                        productName={item.name}
+                        price={item.price}
+                    />
+                )}
+                horizontal={true}
+            />
         </View>
     
     </View>
