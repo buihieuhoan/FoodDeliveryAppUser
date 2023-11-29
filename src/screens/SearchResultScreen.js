@@ -19,6 +19,7 @@ const SearchResultScreen = ({navigation,route}) => {
                 data={restaurantsData}
                 keyExtractor={(item,index)=>index.toString()}
                 renderItem={({item,index})=>(
+
                     <SearchResultCard 
                         screenWidth = {SCREEN_WIDTH}
                         images={item.images}
@@ -28,6 +29,7 @@ const SearchResultScreen = ({navigation,route}) => {
                         farAway={item.farAway}
                         businessAddress={item.businessAddress}
                         productData={item.productData}
+                        OnPressRestaurantCard ={()=>{if(navigation){navigation.navigate("RestaurantHomeScreen",{id:index,restaurant:item.restaurantName})}}}
                     />
                 )}
 

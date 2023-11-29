@@ -10,7 +10,8 @@ export const colors = {
     cardbackground: '#fff',
     statusbar: '#ff8c52',
     headerText: 'white',
-    lightgreen: '#66df48'
+    lightgreen: '#66df48',
+    black:'#000'
 }
 
 
