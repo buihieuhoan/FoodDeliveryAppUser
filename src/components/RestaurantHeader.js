@@ -44,7 +44,7 @@ const RestaurantHeader = ({navigation,id}) => {
         <ImageBackground
             style={styles.container}
             source ={{uri:restaurantsData[id].images}}
-            imageStyle={styles.image}
+            
         >
 
             <View style={styles.view1} >
