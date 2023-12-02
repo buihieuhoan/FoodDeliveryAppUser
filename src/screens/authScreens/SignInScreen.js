@@ -76,9 +76,9 @@ export default function SignInScreen({navigation}) {
                         <Animatable.View animation={textInput2Fossued?"":"fadeInLeft"} duration={400} >
                             <Icon
                                 name='lock'
-                                iconStyle = {{color: colors.grey3}}
+                                style = {{color: colors.grey3}}
                                 type= 'material'
-                                style={{}}
+                                //style={{}}
 
 
                             />
@@ -103,9 +103,9 @@ export default function SignInScreen({navigation}) {
 
                             <Icon
                                 name='visibility-off'
-                                iconStyle = {{color: colors.grey3}}
+                                style = {{color: colors.grey3, marginRight:10}}
                                 type= 'material'
-                                style={{marginRight: 10}}
+                                //style={{marginRight: 10}}
 
                             />
 
@@ -167,6 +167,11 @@ export default function SignInScreen({navigation}) {
                     title='Create an account'
                     buttonStyle={styles.createButton}
                     titleStyle={styles.createButtonTitle}
+                    onPress={() => {
+                        if (navigation) {
+                            navigation.navigate("SignUpScreen")
+                        }
+                    }}
                 />
             </View>
 

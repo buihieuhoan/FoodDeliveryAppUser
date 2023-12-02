@@ -74,6 +74,11 @@ export default function SignInWelcomeScreen({navigation}){
                         title='Create an account'
                         buttonStyle={styles.createButton}
                         titleStyle={styles.createButtonTitle}
+                        onPress={() => {
+                            if (navigation) {
+                                navigation.navigate("SignUpScreen")
+                            }
+                        }}
                     />
                 </View>
             </View>
