@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "75628223820",
+    "project_id": "xpressfood-5aea6",
+    "storage_bucket": "xpressfood-5aea6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75628223820:android:1cf9e6946f1e30d6fc03e9",
+        "android_client_info": {
+          "package_name": "com.fooddeliveryappuser"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6N5Dz4OWlz9g2DXPvk51Hcry6oCTOgk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
