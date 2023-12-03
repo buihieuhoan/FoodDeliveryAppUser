@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef,useContext} from 'react'
 import { View, Text, StyleSheet, Dimensions, TextInput, Alert } from 'react-native'
 import {colors, parameters, title } from '../../global/styles'
 import * as Animatable from 'react-native-animatable'
@@ -7,9 +7,12 @@ import  Icon  from 'react-native-vector-icons/MaterialIcons'
 import { Formik } from 'formik'
 import Header from '../../components/Header'
 import auth from '@react-native-firebase/auth'
+import { SignInContext } from '../../contexts/authContext';
 export default function SignInScreen({navigation}) {
     
-    const [textInput2Fossued, setTextInput2Fossued] = useState(false)
+    const {dispatchSignedIn} = useContext(SignInContext)
+
+    const[textInput2Fossued, setTextInput2Fossued] =useState(false)
 
     const textInput1 = useRef(1)
     const textInput2 = useRef(2)
@@ -20,7 +23,7 @@ export default function SignInScreen({navigation}) {
             const {password, email} = data
             const user = await auth().signInWithEmailAndPassword(email, password)
             if(user) {
-                console.log('USER SIGNED-IN')
+                dispatchSignedIn({type:"UPDATE_SIGN_IN",payload:{userToken:"signed-in"}})
             }
         }
         catch(error){
@@ -76,7 +79,7 @@ export default function SignInScreen({navigation}) {
                         <Animatable.View animation={textInput2Fossued?"":"fadeInLeft"} duration={400} >
                             <Icon
                                 name='lock'
-                                style = {{color: colors.grey3}}
+                                style = {{fontSize:20,paddingRight:10,color: colors.grey3}}
                                 type= 'material'
                                 //style={{}}
 
@@ -103,7 +106,7 @@ export default function SignInScreen({navigation}) {
 
                             <Icon
                                 name='visibility-off'
-                                style = {{color: colors.grey3, marginRight:10}}
+                                style = {{fontSize:20, marginRight:10,color: colors.grey3}}
                                 type= 'material'
                                 //style={{marginRight: 10}}
 
@@ -182,6 +185,7 @@ export default function SignInScreen({navigation}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop:20
     },
 
     text1: {
