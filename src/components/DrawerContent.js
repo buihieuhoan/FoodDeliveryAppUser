@@ -1,4 +1,5 @@
-import React, {useState,useContext,useEffect} from 'react';
+import React, {useState,useContext,useEffect,} from 'react';
+import auth from '@react-native-firebase/auth'
 
 import {
   View,
@@ -7,7 +8,9 @@ import {
   Pressable,
   Alert,
   Switch,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity,
+  AppState
 } from 'react-native';
 
 
@@ -24,10 +27,33 @@ import { Avatar,
 } from '@rneui/themed';
 
 import {colors} from '../global/styles'
+import { SignInContext } from '../contexts/authContext';
+
 
 
 
 export default function DrawerContent(props) {
+    
+
+    const {dispatchSignedIn} = useContext(SignInContext)
+
+    async function signOut(){
+       
+        try{
+            auth()
+            .signOut()
+            .then(
+                ()=>{console.log("USER SUCCESSFULLY SIGNED OUT")
+                dispatchSignedIn({type:"UPDATE_SIGN_IN",payload:{userToken:null}})
+            })
+    
+        }catch(error){
+            Alert.alert(error.code)
+        }
+    }
+    
+
+
     return (
         <View style={styles.container} >
             <DrawerContentScrollView {...props}>
@@ -49,6 +75,7 @@ export default function DrawerContent(props) {
                 </View>
 
                 <View style={{flexDirection:'row', justifyContent:"space-evenly",paddingBottom:5}} >
+
                     <View style={{flexDirection:'row', marginTop:0}} >
                         <View style = {{marginLeft:10,alignItems:"center", justifyContent:"center" }} >
                             <Text style ={{fontWeight:'bold',color:colors.cardbackground,fontSize:18 }} > 1 </Text>
@@ -65,7 +92,6 @@ export default function DrawerContent(props) {
 
                 </View>
             </View>
-
 
 
 
@@ -97,6 +123,7 @@ export default function DrawerContent(props) {
             />
 
 
+
             <DrawerItem
                 label= 'Settings'
                 icon = {({color,size})=>(
@@ -108,6 +135,7 @@ export default function DrawerContent(props) {
                     />
                 )}
             />
+
 
 
             <DrawerItem
@@ -124,6 +152,8 @@ export default function DrawerContent(props) {
 
 
             
+
+
             <View style={{borderTopWidth:1,borderTopColor:colors.grey5}} >
                 <Text style={styles.preferences} > Preferences </Text>
 
@@ -136,22 +166,28 @@ export default function DrawerContent(props) {
                         />
                     </View>
                 </View>
+
             </View>
+
+
+
 
             </DrawerContentScrollView>
 
-            <DrawerItem 
-                label = "Sign Out"
-                icon = {({color,size})=>(
-                    <Icon 
-                        type ="material-community"
-                        name = "logout"
-                        color ={color}
-                        size ={size}
-                        onPress ={()=>{signOut()}} 
-                    />
-                )}
-            />
+            
+                <DrawerItem 
+                    label = "Sign Out"
+                    icon = {({color,size})=>(
+                        <Icon 
+                            type ="material-community"
+                            name = "logout"
+                            color ={color}
+                            size ={size}
+                            onPress ={()=>{signOut()}} 
+                        />
+                    )}
+                />
+            
         </View>
     )
 }

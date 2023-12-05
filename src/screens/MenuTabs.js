@@ -7,7 +7,7 @@ import MenuCard from '../components/MenuCard';
 
 export function Route1() {
     return (
-        <View style={{flex:1}} >  
+        <View style={{flex:1,}} >  
             <View style={styles.view2} >
                 <FlatList
                     style={{backgroundColor:'white'}}
@@ -43,7 +43,8 @@ export const Route8 = () => (<View style={[styles.scene]} />)
 const styles = StyleSheet.create({
     scene: {
       flex: 1,
-      backgroundColor: '#673ab7'
+      backgroundColor: '#673ab7',
+     // marginTop:20
     },
   
     view2:{

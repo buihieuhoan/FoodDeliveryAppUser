@@ -134,7 +134,8 @@ export default RestaurantHomeScreen
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        paddingTop:20
+        paddingTop:20,
+        marginTop:20
     },
 
     view1:{

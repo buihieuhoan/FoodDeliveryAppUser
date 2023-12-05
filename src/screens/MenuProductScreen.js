@@ -90,7 +90,8 @@ const styles = StyleSheet.create({
         flex:1,
         top:0,
         left:0,
-        right:0
+        right:0,
+        marginTop:20
     },
     
     view1:{
