@@ -12,18 +12,18 @@ import {AppState} from 'react-native'
 
 
 export default function App() {
-  useEffect(() => {
-    const handleAppStateChange = (nextAppState) => {
-      console.log('AppState changed to', nextAppState);
-      // Thực hiện xử lý khi AppState thay đổi
-    };
+  // useEffect(() => {
+  //   const handleAppStateChange = (nextAppState) => {
+  //     console.log('AppState changed to', nextAppState);
+  //     // Thực hiện xử lý khi AppState thay đổi
+  //   };
 
-    const appStateSubscription = AppState.addEventListener('change', handleAppStateChange);
+  //   const appStateSubscription = AppState.addEventListener('change', handleAppStateChange);
 
-    return () => {
-      appStateSubscription.remove();
-    };
-  }, []);
+  //   return () => {
+  //     appStateSubscription.remove();
+  //   };
+  // }, []);
   return (
     <SignInContextProvider>
       <View style = {styles.container}>
